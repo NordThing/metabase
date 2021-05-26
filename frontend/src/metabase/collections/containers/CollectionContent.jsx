@@ -8,6 +8,7 @@ import Collection from "metabase/entities/collections";
 import Search from "metabase/entities/search";
 
 import BulkActions from "metabase/collections/components/BulkActions";
+import CollectionEmptyState from "metabase/components/CollectionEmptyState";
 import Header from "metabase/collections/components/Header";
 import ItemsTable from "metabase/collections/components/ItemsTable";
 import PinnedItemsTable from "metabase/collections/components/PinnedItemsTable";
