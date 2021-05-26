@@ -145,7 +145,7 @@ function CollectionContent({
                 <PinnedItemsTable
                   items={sortedPinnedItems}
                   collection={collection}
-                  selected={selected}
+                  selectedItems={selected}
                   getIsSelected={getIsSelected}
                   onDrop={clear}
                   onToggleSelected={toggleItem}
@@ -189,7 +189,7 @@ function CollectionContent({
                         items={unpinnedItems}
                         empty={unpinnedItems.length === 0}
                         showFilters={showFilters}
-                        selected={selected}
+                        selectedItems={selected}
                         getIsSelected={getIsSelected}
                         collection={collection}
                         onToggleSelected={toggleItem}
