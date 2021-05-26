@@ -140,16 +140,18 @@ function CollectionContent({
                 collection={collection}
               />
 
-              <PinnedItemsTable
-                items={sortedPinnedItems}
-                collection={collection}
-                selected={selected}
-                getIsSelected={getIsSelected}
-                onDrop={clear}
-                onToggleSelected={toggleItem}
-                onMove={handleMove}
-                onCopy={handleCopy}
-              />
+              {pinnedItems.length > 0 && (
+                <PinnedItemsTable
+                  items={sortedPinnedItems}
+                  collection={collection}
+                  selected={selected}
+                  getIsSelected={getIsSelected}
+                  onDrop={clear}
+                  onToggleSelected={toggleItem}
+                  onMove={handleMove}
+                  onCopy={handleCopy}
+                />
+              )}
 
               <Search.ListLoader query={unpinnedQuery} wrapped>
                 {({ list: unpinnedItems, metadata }) => {
@@ -169,8 +171,10 @@ function CollectionContent({
                     toggleAll([...unselected, ...pinnedUnselcted]);
                   };
 
+                  const hasPinnedItems = pinnedItems.length > 0;
+
                   return (
-                    <Box mt={3}>
+                    <Box mt={hasPinnedItems ? 3 : 0}>
                       <ItemsTable
                         filter={filter}
                         items={unpinnedItems}
@@ -181,7 +185,6 @@ function CollectionContent({
                         collection={collection}
                         onToggleSelected={toggleItem}
                         onDrop={clear}
-                        collectionHasPins={pinnedItems.length > 0}
                         onFilterChange={handleFilterChange}
                         onMove={handleMove}
                         onCopy={handleCopy}
